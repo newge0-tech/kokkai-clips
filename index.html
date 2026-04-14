@@ -12,6 +12,18 @@
 </style>
 </head>
 <body>
+<div id="cb" style="display:none;background:#fff8c5;border:2px solid #c82832;padding:20px;border-radius:6px;margin-bottom:24px">
+  <h2 style="margin-top:0;border:none">OAuth callback received</h2>
+  <p>以下のURL全体をコピーして、ターミナルに貼り付けてください:</p>
+  <textarea id="cburl" readonly style="width:100%;height:80px;font-family:monospace;font-size:12px"></textarea>
+  <p><button onclick="navigator.clipboard.writeText(document.getElementById('cburl').value);this.textContent='copied!'">Copy to clipboard</button></p>
+</div>
+<script>
+  if (location.search.includes('code=')) {
+    document.getElementById('cb').style.display = 'block';
+    document.getElementById('cburl').value = location.href;
+  }
+</script>
 <h1>国会切り抜きアーカイブ</h1>
 <p><span class="tag">kokkai-clips</span></p>
 <p>国会審議から、注目の質疑応答をショート動画で毎日お届けします。</p>
